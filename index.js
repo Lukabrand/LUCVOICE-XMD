@@ -8,23 +8,33 @@ if (!fs.existsSync(sessionFolder)) fs.mkdirSync(sessionFolder, { recursive: true
 
 // Single file session
 const sessionFile = './session/session.json';
-const { state, saveState } = useSingleFileAuthState(sessionFile);
+let { state, saveState } = useSingleFileAuthState(sessionFile);
+
+// Optional: Use SESSION_ID from environment for Heroku or ephemeral storage
+if (process.env.SESSION_ID) {
+    try {
+        const sessionData = JSON.parse(Buffer.from(process.env.SESSION_ID, 'base64').toString('utf-8'));
+        fs.writeFileSync(sessionFile, JSON.stringify(sessionData, null, 2));
+        console.log('SESSION_ID loaded from environment variable.');
+        ({ state, saveState } = useSingleFileAuthState(sessionFile));
+    } catch (err) {
+        console.error('Failed to parse SESSION_ID env variable:', err);
+    }
+}
 
 async function startBot() {
-    // Fetch latest WhatsApp Web version
     const { version } = await fetchLatestBaileysVersion();
 
-    // Create WhatsApp client
     const client = makeWASocket({
         version,
         auth: state,
-        printQRInTerminal: true // QR code appears on first run
+        printQRInTerminal: true // QR code appears first run only
     });
 
-    // Automatically save session after pairing
+    // Auto save session
     client.ev.on('creds.update', saveState);
 
-    // Simple listener: log incoming messages
+    // Basic message listener
     client.ev.on('messages.upsert', (m) => {
         const msg = m.messages[0];
         if (!msg.message) return;
@@ -49,7 +59,7 @@ async function startBot() {
         }
     });
 
-    console.log(`${process.env.BOT_NAME || 'Bot'} started! Scan QR code if this is the first run.`);
+    console.log(`${process.env.BOT_NAME || 'Bot'} started! Scan QR code if first run.`);
 }
 
 // Start the bot
