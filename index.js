@@ -888,13 +888,16 @@ zk.ev.on('group-participants.update', async (group) => {
                 
                 if((conf.DP).toLowerCase() === 'yes') {     
 
-                let cmsg =`      LUCVOICE-XMD 🇹🇿
-╭─────────────━┈⊷ 
-│🌏 LUCVOICE-XMD
-│💫 ᴘʀᴇғɪx: *[ ${prefixe} ]*
-│⭕ ᴍᴏᴅᴇ: *${md}*
-╰─────────────━┈⊷⁠⁠⁠⁠`;
-                await zk.sendMessage(zk.user.id, { text: cmsg });
+                let cmsg =`
+╭─────────────━┈⊷
+│🤖 *LUCVOICE-XMD*
+╰─────────────━┈⊷
+│⚡ ᴘʀᴇғɪx: *[ ${prefixe} ]*
+│🌐 ᴍᴏᴅᴇ: *${md}*
+│🤖 ʙᴏᴛ ɴᴀᴍᴇ: *LUCVOICE-XMD*
+│👑 ᴏᴡɴᴇʀ : *Lukas Tech*
+╰─────────────━┈⊷
+`;                await zk.sendMessage(zk.user.id, { text: cmsg });
                 }
             }
             else if (connection == "close") {
