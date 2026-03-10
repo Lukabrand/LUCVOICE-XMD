@@ -21,13 +21,9 @@
 ## 🚀 GET SESSION & QR CODE
 
 <p align="center">
-  <a href="https://https://lucvoice-xmd-j4nh.onrender.com">
+  <a href="https://https://https://fixed-sessions.onrender.com">
     <img src="https://img.shields.io/badge/GET%20SESSION-00FF00?style=for-the-badge&logo=whatsapp" width="220" height="38.45"/>
   </a>
-  <a href="https://https://lucvoice-xmd-j4nh.onrender.com">
-    <img src="https://img.shields.io/badge/GET%20QR%20CODE-pink?style=for-the-badge&logo=whatsapp" width="220" height="38.45"/>
-  </a>
-</p>
 
 ---
 
