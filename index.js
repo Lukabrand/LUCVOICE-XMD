@@ -207,7 +207,7 @@ if (conf.AUTOREACT_STATUS=== "yes") {
             
             var dev = [dj, dj2,dj3,luffy].map((t) => t.replace(/[^0-9]/g) + "@s.whatsapp.net").includes(auteurMessage);
             function repondre(mes) { zk.sendMessage(origineMessage, { text: mes }, { quoted: ms }); }
-            console.log("\ HEROKU BT is ONLINE");
+            console.log("\ LUCVOICE-XMD is ONLINE");
             console.log("=========== written message===========");
             if (verifGroupe) {
                 console.log("message provenant du groupe : " + nomGroupe);
@@ -712,7 +712,7 @@ zk.ev.on('group-participants.update', async (group) => {
         const metadata = await zk.groupMetadata(group.id);
 
         if (group.action == 'add' && (await recupevents(group.id, "welcome") == 'on')) {
-            let msg = `*𝐻𝐸𝑅𝑂𝐾𝑈 𝐵𝑇. 𝑊𝐸𝐿𝐶𝑂𝑀𝐸 𝐼𝑁 𝑇𝐻𝐸 𝐺𝑅𝑂𝑈𝑃 𝑀𝐸𝑆𝑆𝐴𝐺𝐸*`;
+            let msg = `*𝐿𝑈𝐶𝑉𝑂𝐼𝐶𝐸-𝑋𝑀𝐷. 𝑊𝐸𝐿𝐶𝑂𝑀𝐸 𝐼𝑁 𝑇𝐻𝐸 𝐺𝑅𝑂𝑈𝑃 𝑀𝐸𝑆𝑆𝐴𝐺𝐸*`;
             let membres = group.participants;
             for (let membre of membres) {
                 msg += ` \n]|I{•------»*𝐻𝐸𝑌* 🖐️ @${membre.split("@")[0]} 𝑊𝐸𝐿𝐶𝑂𝑀𝐸 𝑇𝑂 𝑂𝑈𝑅 𝐺𝑅𝑂𝑈𝑃. \n\n`;
@@ -846,18 +846,18 @@ zk.ev.on('group-participants.update', async (group) => {
         zk.ev.on("connection.update", async (con) => {
             const { lastDisconnect, connection } = con;
             if (connection === "connecting") {
-                console.log("ℹ️ HEROKU BT is connecting...");
+                console.log("ℹ️ LUCVOICE-XMD is connecting...");
             }
             else if (connection === 'open') {
-                console.log("✅ HEROKU-BT Connected to WhatsApp! ☺️");
+                console.log("✅ LUCVOICE-XMD Connected to WhatsApp! ☺️");
                 console.log("--");
                 await (0, baileys_1.delay)(200);
                 console.log("------");
                 await (0, baileys_1.delay)(300);
                 console.log("------------------/-----");
-                console.log("HEROKU-BT is Online 🕸\n\n");
+                console.log("LUCVOICE-XMD is Online 🕸\n\n");
                 //chargement des commandes 
-                console.log("Loading HEROKU BT Commands ...\n");
+                console.log("Loading LUCVOICE-XMD Commands ...\n");
                 fs.readdirSync(__dirname + "/commandes").forEach((fichier) => {
                     if (path.extname(fichier).toLowerCase() == (".js")) {
                         try {
@@ -888,9 +888,9 @@ zk.ev.on('group-participants.update', async (group) => {
                 
                 if((conf.DP).toLowerCase() === 'yes') {     
 
-                let cmsg =`      RAHMANI-XMD 😎
+                let cmsg =`      LUCVOICE-XMD 🇹🇿
 ╭─────────────━┈⊷ 
-│🌏 HEROKU-BT CONNECTED
+│🌏 LUCVOICE-XMD
 │💫 ᴘʀᴇғɪx: *[ ${prefixe} ]*
 │⭕ ᴍᴏᴅᴇ: *${md}*
 ╰─────────────━┈⊷⁠⁠⁠⁠`;
