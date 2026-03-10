@@ -1,132 +1,116 @@
 {
-  "name": "LUCVOICE-XMD",
-  "description": "LUCVOICE-XMD is a powerful WhatsApp Multi Device Bot built for automation, AI chat, media tools, and smart assistant features.",
-  "logo": "https://telegra.ph/file/0c225f7da5616cdcbec11.jpg",
-  "keywords": [
-    "whatsapp-bot",
-    "lucvoice-xmd",
-    "automation",
-    "ai-bot",
-    "baileys-md",
-    "multi-device",
-    "chatbot",
-    "downloader"
-  ],
-  "repository": "https://github.com/lukabrand/LUCVOICE-XMD",
-  "website": "https://github.com/lukabrand/LUCVOICE-XMD",
-  "stack": "container",
-  "env": {
-
-    "BOT_NAME": {
-      "description": "Name of your WhatsApp Bot",
-      "value": "LUCVOICE-XMD"
-    },
-
-    "OWNER_NAME": {
-      "description": "Bot Owner Name",
-      "value": "lucvoice"
-    },
-
-    "OWNER_NUMBER": {
-      "description": "Owner WhatsApp Number",
-      "value": "255000000000"
-    },
-
-    "PREFIX": {
-      "description": "Bot Command Prefix",
-      "value": "."
-    },
-
-    "MODE": {
-      "description": "Bot Mode (public/private)",
-      "value": "public"
-    },
-
-    "TIME_ZONE": {
-      "description": "Bot Time Zone",
-      "value": "Africa/Dar_es_Salaam"
-    },
-
-    "AUTO_STATUS_VIEW": {
-      "description": "Automatically view WhatsApp status",
-      "value": "true"
-    },
-
-    "AUTO_STATUS_LIKE": {
-      "description": "Automatically like WhatsApp status",
-      "value": "true"
-    },
-
-    "STATUS_LIKE_EMOJI": {
-      "description": "Emoji used to like WhatsApp status",
-      "value": "❤️"
-    },
-
-    "AUTO_STATUS_REPLY": {
-      "description": "Auto reply to status",
-      "value": "false"
-    },
-
-    "ANTIDELETE": {
-      "description": "Recover deleted messages",
-      "value": "true"
-    },
-
-    "ANTICALL": {
-      "description": "Automatically block users who call the bot",
-      "value": "false"
-    },
-
-    "CHATBOT": {
-      "description": "Enable AI Chatbot",
-      "value": "true"
-    },
-
-    "AUTO_READ": {
-      "description": "Auto read incoming messages",
-      "value": "true"
-    },
-
-    "AUTO_TYPING": {
-      "description": "Show typing indicator",
-      "value": "false"
-    },
-
-    "AUTO_RECORDING": {
-      "description": "Show recording indicator",
-      "value": "false"
-    },
-
-    "BOT_MENU_LINK": {
-      "description": "Menu image or link for bot menu",
-      "value": "https://telegra.ph/file/0c225f7da5616cdcbec11.jpg"
-    },
-
-    "START_MESSAGE": {
-      "description": "Message sent when bot starts",
-      "value": "LUCVOICE-XMD bot is now online and ready to use."
-    },
-
-    "HEROKU_API_KEY": {
-      "description": "Your Heroku API Key",
-      "required": false
-    },
-
-    "HEROKU_APP_NAME": {
-      "description": "Your Heroku App Name",
-      "required": false
-    },
-
-    "SESSION_ID": {
-      "description": "Paste your WhatsApp Session ID here",
-      "required": false
-    }
-
-  },
-
-  "buildpacks": [
+  "name":"LUCVOICE-XMD",
+  "description":"LUCVOICE",
+  "keywords":["bot","node","baileys","whatsapp"],
+  "logo":"https://files.catbox.moe/t21l69.png",
+  "repository":"https://github.com/lukabrand/LUCVOICE-XMD-",
+  "succes_url":"/",
+  "stack":"container",
+  "env":{
+    "PREFIX":
     {
-      "url": "heroku/nodejs"
+      "description":"choose your prefix of bot",
+      "value":".",
+      "required":true
+    },
+    "AUTO_READ_STATUS":
+    {
+      "description":"Your contact status will be read automatically (type yes to active or no to deactive ; don't write in capital letter)",
+      "value":"yes",
+      "required":false
+    },
+    "AUTO_REACT_STATUS":
+    {
+      "description":"Bot will automatically react to status updates with 💚 (type yes to active or no to deactive ; don't write in capital letter)",
+      "value":"yes",
+      "required":false
+    },
+    "AUTO_DOWNLOAD_STATUS":
+    {
+      "description":"Your contact status will be download automatically and send to you (type yes to active or no to deactive ; don't write in capital letter)",
+      "value":"no",
+      "required":false
+    },
+    "PM_PERMIT" :
+    {
+      "description":"Other user can't use your bot in pm (type yes to active or no to deactive ; don't write in capital letter)",
+      "value":"no",
+      "required":true
+    },
+    "BOT_NAME" : {
+      "description":"put A name for your bot",
+      "value":"LUCVOICE XMD",
+      "required":false
+    },
+    "BOT_MENU_LINKS" : {
+      "description":"add one or many link for your bot menu ; eg : url1,url2,url3.....",
+      "value":"https://files.catbox.moe/t21l69.png",
+      "required":false
+    },
+    "PUBLIC_MODE":
+    {
+      "description":"type yes to put your bot on public mode or no to put it on private mod",
+      "value":"no",
+      "required": true 
+    },
+    "HEROKU_APY_KEY": {
+      "description": "insert your heroku api-key (this is optionnal)",
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "description": "insert your heroku APP NAME (this is optionnal)",
+      "required": true
+    },
+    "SESSION_ID":
+    {
+      "description":"put your session ID , the code you receive after scanning Qr code",   
+      "value":"",
+      "required":true
+    },
+    "OWNER_NAME":
+    {
+      "desc": "Your Name",
+      "required": false,
+      "value": "Lucvoice"
+    },
+    "NUMERO_OWNER":
+    {
+      "desc": "Your number , dont put '+' and put you area code (exemple of togo '255')",
+      "required": false,
+      "value": "255768619068"
+    },
+    "WARN_COUNT":
+    {
+      "desc": "this is the limit of warn for warning commandes",
+      "required": false,
+      "value": "3"
+    },
+    "STARTING_BOT_MESSAGE":
+    {
+      "description": "if you don't want startting-bot-message put no else put yes",
+      "required": true,
+      "value": "yes"
+    },
+    "PRESENCE":{
+      "description":"Mark your presence: 1 to indicate that you are online even if you are not. 2 to indicate that you are currently typing a message. 3 to indicate that you are currently recording an audio. Or leave the field blank to indicate your real state.",
+      "value":"1",
+      "required": true 
+    },
+    "ANTI_DELETE_MESSAGE" : {
+      "description": "if you want to enable anti delete message put yes else put no",
+      "value": "no",
+      "required": true 
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons":[
+    {
+      "plan":"heroku-postgresql"
     }
   ]
 }
