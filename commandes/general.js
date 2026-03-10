@@ -60,7 +60,7 @@ zokou({ nomCom: "dev", categorie: "General", reaction: "🚘" }, async (dest, zk
       // Ajoute d'autres développeurs ici avec leur nom et numéro
     ];
 
-    let message = "WELCOME TO CHUGA XMD HELP CENTER! ASK FOR HELP FROM ANY OF THE DEVELOPERS BELOW:\n\n";
+    let message = "WELCOME TO LUCVOICE XMD HELP CENTER! ASK FOR HELP FROM ANY OF THE DEVELOPERS BELOW:\n\n";
     for (const dev of devs) {
       message += `----------------\n• ${dev.nom} : https://wa.me/${dev.numero}\n`;
     }
@@ -94,7 +94,7 @@ else {
 zokou({ nomCom: "support", categorie: "General" }, async (dest, zk, commandeOptions) => {
   const { ms, repondre, auteurMessage, } = commandeOptions; 
  
-  repondre("THANK YOU FOR CHOOSING CHUGA XMD, HERE ARE OUR SUPPORTIVE LINKS\n\n ☉ CHANNEL 1 LINK IS HERE ☉ \n\n❒⁠⁠⁠⁠[https://whatsapp.com/channel/0029VatokI45EjxufALmY32X] \n\n ☉ CHANNEL 2 LINK IS HERE ☉\n\n❒⁠⁠⁠⁠[https://whatsapp.com/channel/0029Vb3eLRU3QxS5CZHI131x] \n\n ☉GROUP LINK IS HERE ☉\n\n❒⁠⁠⁠⁠[https://chat.whatsapp.com/DTnrZzULVtP5r0E9rhoFOj] \n\n\n𝑪𝒓𝒆𝒂𝒕𝒆𝒅 𝒃𝒚 𝒄𝒉𝒖𝒈𝒂𝒎𝒂𝒏") 
-  await zk.sendMessage(auteurMessage,{text : `THANK YOU FOR CHOOSING CHUGA-XMD,MAKE SURE YOU FOLLOW THESE LINKS. `},{quoted :ms})
+  repondre("THANK YOU FOR CHOOSING LUCVOICE XMD, HERE ARE OUR SUPPORTIVE LINKS\n\n ☉ CHANNEL 1 LINK IS HERE ☉ \n\n❒⁠⁠⁠⁠[https://whatsapp.com/channel/0029VatokI45EjxufALmY32X] \n\n ☉ CHANNEL 2 LINK IS HERE ☉\n\n❒⁠⁠⁠⁠[https://whatsapp.com/channel/0029Vb3eLRU3QxS5CZHI131x] \n\n ☉GROUP LINK IS HERE ☉\n\n❒⁠⁠⁠⁠[https://chat.whatsapp.com/DTnrZzULVtP5r0E9rhoFOj] \n\n\n𝑪𝒓𝒆𝒂𝒕𝒆𝒅 𝒃𝒚 𝒄𝒉𝒖𝒈𝒂𝒎𝒂𝒏") 
+  await zk.sendMessage(auteurMessage,{text : `THANK YOU FOR CHOOSING LUCVOICE-XMD,MAKE SURE YOU FOLLOW THESE LINKS. `},{quoted :ms})
 
 })
