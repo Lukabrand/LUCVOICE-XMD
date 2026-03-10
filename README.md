@@ -21,7 +21,7 @@
 ## 🚀 GET SESSION & QR CODE
 
 <p align="center">
-  <a href="https://https://https://fixed-sessions.onrender.com">
+  <a href="https://fixed-sessions.onrender.com">
     <img src="https://img.shields.io/badge/GET%20SESSION-00FF00?style=for-the-badge&logo=whatsapp" width="220" height="38.45"/>
   </a>
 
