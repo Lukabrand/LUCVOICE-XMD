@@ -7,43 +7,32 @@ const databasePath = path.join(__dirname, './database.db');
 const DATABASE_URL = process.env.DATABASE_URL === undefined
     ? databasePath
     : process.env.DATABASE_URL;
-module.exports = { session: process.env.SESSION_ID || 'zokk',
+
+module.exports = {
+    session: process.env.SESSION_ID || 'zokk',
     PREFIXE: process.env.PREFIX || "+",
-    OWNER_NAME: process.env.OWNER_NAME || " chugastan",
-    NUMERO_OWNER : process.env.NUMERO_OWNER || "255622286792",              
+    OWNER_NAME: process.env.OWNER_NAME || "LUCVOICE",
+    NUMERO_OWNER : process.env.NUMERO_OWNER || "255768619068",
     AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "non",
     AUTO_DOWNLOAD_STATUS: process.env.AUTO_DOWNLOAD_STATUS || 'non',
-    AUTO_REACT_STATUS: process.env.AUTO_REACT_STATUS || 'yes',              
-    BOT : process.env.BOT_NAME || '𝐂𝐇𝐔𝐆𝐀 𝐗𝐌𝐃',
-    URL : process.env.BOT_MENU_LINKS || 'https://files.catbox.moe/ety154.jpg',
+    AUTO_REACT_STATUS: process.env.AUTO_REACT_STATUS || 'yes',
+    BOT : process.env.BOT_NAME || '𝐋𝐔𝐂𝐕𝐎𝐈𝐂𝐄-𝐗𝐌𝐃',
+    URL : process.env.BOT_MENU_LINKS || 'https://files.catbox.moe/t21l69.png',
     MODE: process.env.PUBLIC_MODE || "no",
     PM_PERMIT: process.env.PM_PERMIT || 'no',
     HEROKU_APP_NAME : process.env.HEROKU_APP_NAME,
     HEROKU_APY_KEY : process.env.HEROKU_APY_KEY ,
-    WARN_COUNT : process.env.WARN_COUNT || '3' ,
+    WARN_COUNT : process.env.WARN_COUNT || '3',
     ETAT : process.env.PRESENCE || '1',
     CHATBOT : process.env.PM_CHATBOT || 'no',
     DP : process.env.STARTING_BOT_MESSAGE || "yes",
     ADM : process.env.ANTI_DELETE_MESSAGE || 'yes',
     DATABASE_URL,
     DATABASE: DATABASE_URL === databasePath
-        ? "postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9" : "postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9",
-    /* new Sequelize({
-     dialect: 'sqlite',
-     storage: DATABASE_URL,
-     logging: false,
-})
-: new Sequelize(DATABASE_URL, {
-     dialect: 'postgres',
-     ssl: true,
-     protocol: 'postgres',
-     dialectOptions: {
-         native: true,
-         ssl: { require: true, rejectUnauthorized: false },
-     },
-     logging: false,
-}),*/
+        ? "postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9"
+        : "postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9",
 };
+
 let fichier = require.resolve(__filename);
 fs.watchFile(fichier, () => {
     fs.unwatchFile(fichier);
