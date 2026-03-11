@@ -116,28 +116,41 @@ setTimeout(() => {
 
 if (conf.AUTOREACT_STATUS=== "yes") {
     zk.ev.on("messages.upsert", async (m) => {
-        const { messages } = m;
-        
-        for (const message of messages) {
-            if (message.key && message.key.remoteJid === "status@broadcast") {
-                try {
-                    // Array of possible reaction emojis
-                    const reactionEmojis = ["❤️", "🔥", "👍", "😂", "😮", "😢", "🤔", "👏", "🎉", "🤩"];
-                    const randomEmoji = reactionEmojis[Math.floor(Math.random() * reactionEmojis.length)];
-                    
-                    // Mark as read first
-                    await zk.readMessages([message.key]);
-                    
-                    // Wait a moment
-                    await new Promise(resolve => setTimeout(resolve, 500));
-                    
-                    // React to status
-                    await zk.sendMessage(message.key.remoteJid, {
-                        react: {
-                            text: randomEmoji,
-                            key: message.key
-                        }
-                    });
+    const { messages } = m;
+
+    for (const message of messages) {
+
+        // Check if it's a status
+        if (message.key && message.key.remoteJid === "status@broadcast") {
+            try {
+                const reactionEmojis = ["❤️", "🔥", "👍", "😂", "😮", "😢", "🤔", "👏", "🎉", "🤩"];
+                const randomEmoji = reactionEmojis[Math.floor(Math.random() * reactionEmojis.length)];
+
+                // Mark as read
+                await zk.readMessages([message.key]);
+
+                // React with emoji
+                await zk.sendMessage(message.key.remoteJid, {
+                    react: {
+                        text: randomEmoji,
+                        key: message.key
+                    }
+                });
+
+                console.log(`Reacted to status from ${message.key.participant} with ${randomEmoji}`);
+            } catch (error) {
+                console.error("Status reaction failed:", error);
+            }
+            continue; // Ensures status reactions don't interfere with normal message code
+        }
+
+        const ms = message;
+        if (!ms.message) continue;
+
+        // Place your normal code here: anti-link, commands, anti-bot, etc.
+        // ...
+    }
+});
                     
                     console.log(`Reacted to status from ${message.key.participant} with ${randomEmoji}`);
                     
@@ -843,34 +856,32 @@ zk.ev.on('group-participants.update', async (group) => {
         });
         //fin événement contact 
         //événement connexion
-        zk.ev.on("connection.update", async (con) => {
-            const { lastDisconnect, connection } = con;
-            if (connection === "connecting") {
-                console.log("ℹ️ LUCVOICE-XMD is connecting...");
-            }
-            else if (connection === 'open') {
-                console.log("✅ LUCVOICE-XMD Connected to WhatsApp! ☺️");
-                console.log("--");
-                await (0, baileys_1.delay)(200);
-                console.log("------");
-                await (0, baileys_1.delay)(300);
-                console.log("------------------/-----");
-                console.log("LUCVOICE-XMD is Online 🕸\n\n");
-                //chargement des commandes 
-                console.log("Loading LUCVOICE-XMD Commands ...\n");
-                fs.readdirSync(__dirname + "/commandes").forEach((fichier) => {
-                    if (path.extname(fichier).toLowerCase() == (".js")) {
-                        try {
-                            require(__dirname + "/commandes/" + fichier);
-                            console.log(fichier + " Installed Successfully✔️");
-                        }
-                        catch (e) {
-                            console.log(`${fichier} could not be installed due to : ${e}`);
-                        } /* require(__dirname + "/beltah/" + fichier);
-                         console.log(fichier + " Installed ✔️")*/
-                        (0, baileys_1.delay)(300);
-                    }
-                });
+        zk.ev.on("connection.update", async (update) => {
+    const { connection, lastDisconnect } = update;
+
+    if (connection === "connecting") {
+        console.log("ℹ️ LUCVOICE-XMD is connecting...");
+    } else if (connection === "open") {
+        console.log("✅ LUCVOICE-XMD Connected to WhatsApp! ☺️");
+
+        // Send your dashboard/status message
+        const msg = `
+╭─────────────━┈⊷
+│🤖 *LUCVOICE-XMD*
+╰─────────────━┈⊷
+│✅ Status: Connected
+│⚡ Prefix: .
+│🌐 Mode: Public
+│👑 Owner: Lukas Tech
+╰─────────────━┈⊷
+`;
+
+        await zk.sendMessage(zk.user.id, { text: msg });
+    } else if (connection === "close") {
+        console.log("Connection closed, trying to reconnect...");
+        main(); // or your reconnect logic
+    }
+});
                 (0, baileys_1.delay)(700);
                 var md;
                 if ((conf.MODE).toLocaleLowerCase() === "yes") {
