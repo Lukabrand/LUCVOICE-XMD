@@ -53,11 +53,11 @@
       "value":"no",
       "required": true 
     },
-    "HEROKU_APY_KEY": {
+    "HEROKU_APP_NAME": {
       "description": "insert your heroku api-key (this is optionnal)",
       "required": true
     },
-    "HEROKU_APP_NAME": {
+    "HEROKU_APY_KEY": {
       "description": "insert your heroku APP NAME (this is optionnal)",
       "required": true
     },
