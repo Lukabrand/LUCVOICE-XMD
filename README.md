@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">  
-  <a href="https://files.catbox.moe/t21l69.png">
+  <a href="https://files.catbox.moe/0nd0xp.png">
     <img alt="LUCVOICE-XMD" height="300" src="https://files.catbox.moe/t21l69.png">
   </a>
 </p>  
